@@ -12,8 +12,6 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-
-
 public class Appjson {
 
 	public static void main(String[] args) throws JsonParseException, JsonMappingException, IOException {
@@ -24,7 +22,14 @@ public class Appjson {
 		for(Model m:models)
 		{
 			System.out.println(m.getFirstname() + m.getLastname() + m.cars[0]);
-		}
+		}	
+		Model mout = new Model();
+		mout.setFirstname("jesvith");
+		mout.setLastname("poosarla");
+		mout.setAge(34);
+		mout.setAddress(new Address("12stree","hghghg","hgfhg"));
+		mout.setCars(new String[] {"a","b"});
+		om.writeValue(new File("E:\\Mulesoft\\personoutjson.json"),mout);
+		is.close();
 	}
-
 }
